@@ -63,11 +63,8 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UIScrollViewDelegate {
-    /*
-     * default function called when view is scolled. In order to enable callback
-     * when scrollview is scrolled, the below code needs to be called:
-     * slideScrollView.delegate = self or
-     */
+    //scrollview delegate must be set to self
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageController.currentPage = Int(pageIndex)
@@ -82,16 +79,11 @@ extension ViewController: UIScrollViewDelegate {
         let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
         let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
         
-        
-        /*
-         * below code changes the background color of view on paging the scrollview
-         */
-        //        self.scrollView(scrollView, didScrollToPercentageOffset: percentageHorizontalOffset)
+//        change background color
+//        self.scrollView(scrollView, didScrollToPercentageOffset: percentageHorizontalOffset)
         
         
-        /*
-         * below code scales the colorView on paging the scrollview
-         */
+        //below code scales the colorView on paging the scrollview
         let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
         
         if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
